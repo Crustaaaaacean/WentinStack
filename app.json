@@ -5,12 +5,16 @@
     "pages/logs/logs",
     "pages/test/test",
     "pages/practice/practice",
-    "pages/exam/exam"
+    "pages/exam/exam",
+    "pages/examlogs/examlogs",
+    "pages/mistakes/mistakes",
+    "pages/about/about",
+    "pages/result/result"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "全优题库",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

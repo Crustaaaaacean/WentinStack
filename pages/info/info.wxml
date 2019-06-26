@@ -7,5 +7,11 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  
+
+  <view class="info-nav">
+    <navigator class='info-nav-indi' url='/pages/examlogs/examlogs'>过往测试记录</navigator>
+    <navigator class='info-nav-indi' url='/pages/mistakes/mistakes'>我的错题本</navigator>
+    <navigator class='info-nav-indi' url='/pages/about/about'>关于全优题库</navigator>
+  </view>
 </view>
+

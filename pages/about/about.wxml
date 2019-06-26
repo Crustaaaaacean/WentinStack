@@ -1,0 +1,5 @@
+<!--pages/about/about.wxml-->
+<view class="aboutMe">
+  <image src='/images/pkq.jpg'></image>
+  <view style="margin-top: 35rpx">主人！现在是全优题库1.0！！！</view>
+</view>

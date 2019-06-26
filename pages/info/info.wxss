@@ -1,8 +1,8 @@
 /* pages/info/info.wxss */
 .userinfo {
-  left: 0rpx;
-  margin-top: 0rpx;
-  position: fixed
+  text-align: center;
+  top: 0rpx;
+  position: fixed;
 }
 
 .userinfo-avatar {
@@ -14,4 +14,14 @@
 
 .userinfo-nickname {
   color: #aaa;
+  display: block;
+}
+
+.info-nav{
+  text-align: center;
+  padding-top: 100rpx;
+}
+
+.info-nav-indi{
+  margin: 30rpx;
 }

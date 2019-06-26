@@ -1,0 +1,5 @@
+/* pages/about/about.wxss */
+.aboutMe{
+  margin-top: 150rpx;
+  text-align: center;
+}
