@@ -1,11 +1,29 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  
+<view class="section">
+  <picker bindchange="bindSubjuctChange" value="{{indexS}}" range="{{arrayS}}">
+    <view class="picker">
+      科目：{{arrayS[indexS]}}
+    </view>
+  </picker>
 </view>
+
+<view class="section">
+  <picker bindchange="bindDegreeChange" value="{{indexD}}" range="{{arrayD}}">
+    <view class="picker">
+      难度：{{arrayD[indexD]}}
+    </view>
+  </picker>
+</view>
+
+<view class="section">
+  <picker bindchange="bindTypeChange" value="{{indexT}}" range="{{arrayT}}">
+    <view class="picker">
+      题目类型：{{arrayT[indexT]}}
+    </view>
+  </picker>
+</view>
+
+<button type="primary" size="{{primarySize}}" loading=
+"{{loading}}" plain="{{plain}}" disable="{{disable}}" bindtap="primary">开始练习</button>
+
+
