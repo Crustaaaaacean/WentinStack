@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/info/info",
     "pages/index/index",
     "pages/logs/logs",
     "pages/test/test",
-    "pages/info/info"
+    "pages/practice/practice",
+    "pages/exam/exam"
   ],
   "window": {
     "backgroundTextStyle": "light",

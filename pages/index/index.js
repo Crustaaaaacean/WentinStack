@@ -6,7 +6,11 @@ Page({
     arrayT: ['选择', '填空', '简答', '混合'],
     indexS: 0,
     indexD: 0,
-    indexT: 0
+    indexT: 0,
+    primarySize :'default',
+    disabled: false,
+    plain: false,
+    loading: false
   },
   bindSubjuctChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -24,6 +28,11 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       indexT: e.detail.value
+    })
+  },
+  goPractice: function () {
+    wx.navigateTo({
+      url: '/pages/practice/practice',
     })
   }
 })

@@ -23,7 +23,6 @@
   </picker>
 </view>
 
-<button type="primary" size="{{primarySize}}" loading=
-"{{loading}}" plain="{{plain}}" disable="{{disable}}" bindtap="primary">开始练习</button>
+<button bindtap = "goPractice" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}">开始练习</button>
 
 
