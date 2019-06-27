@@ -119,8 +119,7 @@ Page({
       })
     }
     if (this.data.index == 8) {
-      wx.redirect
-      To({
+      wx.redirectTo({
         url: '/pages/result/result?A=' + this.data.A + '&B=' + this.data.B + '&C=' + this.data.C + '&D=' + this.data.D + '&correct=' + this.data.correct + '&error=' + this.data.error,
       })
     }

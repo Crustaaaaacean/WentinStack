@@ -1,2 +1,6 @@
 <!--pages/analysis/analysis.wxml-->
-<text>pages/analysis/analysis.wxml</text>
+<view>
+  <view>答案：</view>
+  <view>解析：</view>
+  <button type="primary">加入错题本</button>
+</view>

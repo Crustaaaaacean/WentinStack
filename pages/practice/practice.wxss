@@ -1,1 +1,4 @@
 /* pages/practice/practice.wxss */
+.radio-indiv{
+  display: block;
+}

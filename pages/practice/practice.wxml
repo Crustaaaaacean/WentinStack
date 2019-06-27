@@ -1,2 +1,9 @@
 <!--pages/practice/practice.wxml-->
-<text>pages/practice/practice.wxml</text>
+<radio-group class="radio-group" bindchange="radioChange">
+  <text>1.那个国家的政体是人民代表大会？</text>
+  <label class="radio" wx:for="{{items}}">
+    <radio class="radio-indiv" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+  <button bindtap="goAnalysis">查看解析</button>
+  <button>下一题</button>
+</radio-group>
