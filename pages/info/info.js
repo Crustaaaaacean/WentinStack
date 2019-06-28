@@ -13,6 +13,16 @@ Page({
     })
   },
   onLoad: function () {
+    const db = wx.cloud.database();
+    db.collection("Questions").get({
+      success: res => {
+        console.log("获取问题用户：", res.data);
+      },
+      fail: res => {
+        console.error("获取问题失败", err);
+      }
+    })
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

@@ -1,27 +1,14 @@
 <!--pages/exam/exam.wxml-->
-<view class="page">
-  <view class='page__hd'>
-    <view class="page__title" >{{index}}、{{questionDetail}}</view>
-  </view>
-  <view class="page__bd">
-    <view class="weui-cells weui-cells_after-title">
-            <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='answerClickA'>
-                <view class="weui-cell__bd">{{optionA}}、{{answerA}}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </view>
-            <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='answerClickB'>
-                <view class="weui-cell__bd">{{optionB}}、{{answerB}}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </view>
-            <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='answerClickC'>
-                <view class="weui-cell__bd">{{optionC}}、{{answerC}}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </view>
-            <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='answerClickD'>
-                <view class="weui-cell__bd">{{optionD}}、{{answerD}}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </view>
-            
-        </view>
-  </view>
-</view>
+<radio-group class="radio-group" bindchange="radioChange">
+  <text>{{title[i]}}</text>
+  <label class="radio" wx:for="{{options}}">
+    <view wx:if="{{i == index}}">
+      <label wx:for="{{item}}" class="options-content">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{item}}</text>
+      </label> 
+    </view>
+  </label>
+  <button bindtap="goNext">下一题</button>
+</radio-group>
+

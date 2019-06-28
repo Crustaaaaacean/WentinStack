@@ -1,1 +1,10 @@
 /* pages/exam/exam.wxss */
+.radio-indiv{
+  display: inline;
+  margin: 10rpx;
+  width: 50rpx;
+}
+
+.options-content{
+  display: block;
+}

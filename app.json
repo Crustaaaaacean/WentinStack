@@ -10,7 +10,8 @@
     "pages/mistakes/mistakes",
     "pages/about/about",
     "pages/result/result",
-    "pages/analysis/analysis"
+    "pages/analysis/analysis",
+    "pages/exp/exp"
   ],
   "window": {
     "backgroundTextStyle": "light",
