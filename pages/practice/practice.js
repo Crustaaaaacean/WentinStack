@@ -39,12 +39,11 @@ Page({
     }
   }})
   },
-  
-    
-    
   goAnalysis: function(){
+    var that = this;
+    var i_t = that.data.i;
     wx.navigateTo({
-      url: '/pages/analysis/analysis',
+      url: '/pages/analysis/analysis?answer=' + that.data.ans[i_t] + '&analysis=' + that.data.analysis[i_t],
     })
   },
   radiochange: function (res) {
