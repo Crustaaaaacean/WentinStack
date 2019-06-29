@@ -2,5 +2,5 @@
 <view>
   <view>答案：{{answer}}</view>
   <view>解析：{{analysis}}</view>
-  <button type="primary">加入错题本</button>
+  <button type="primary" bindtap='addToMis'>加入错题本</button>
 </view>

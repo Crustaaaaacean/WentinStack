@@ -9,16 +9,37 @@ Page({
     options: [],
     ans: [],
     analysis: [],
+    index_test: 0,
+    databaseQ: ['Qji','Qma','Qjing','Qmao']
   },
   onLoad: function (options) {
     var that = this;
+    // that.setData({
+    //   index_test: options.indexFromTest
+    // })
+    wx.getStorage({
+      key: 'indexS',
+      success: function (res) {
+        if(res.data != null) {
+          that.setData({
+            index_test: res.data
+          })
+        } else {
+
+        }
+      },
+      fail: function (res) {
+        console.error('fail to switch')
+      }
+    })
+
+
     const db = wx.cloud.database();
     db.collection('Qmao').limit(1000).get({
       success: function (res) {
         that.setData({
           items: res.data
         })
-
         for (var k = 0; k < that.data.items.length; k++) {
           var title_t = "title[" + k + "]";
           var options_t0 = "options[" + k + "][0]";
