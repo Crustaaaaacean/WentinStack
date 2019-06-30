@@ -11,6 +11,8 @@
     "pages/about/about",
     "pages/result/result",
     "pages/analysis/analysis",
+    "pages/analysis1/analysis1",
+    "pages/analysis2/analysis2",
     "pages/misdata/misdata",
     "pages/practice1/practice1",
     "pages/practice2/practice2"

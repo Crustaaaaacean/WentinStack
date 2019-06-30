@@ -28,7 +28,7 @@ Page({
     console.log(afterCu)
     const db = wx.cloud.database();
     var db_select = that.data.databaseQ[afterCu];
-    console.log(db_select)
+    console.log('db_select', db_select)
     db.collection(db_select).limit(1000).get({
       success: function(res) {
         that.setData({

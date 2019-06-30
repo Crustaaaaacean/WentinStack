@@ -1,0 +1,5 @@
+<!--pages/analysis2/analysis2.wxml-->
+<view>
+  <view>答案：{{analysis}}</view>
+  <button type="primary" bindtap='addToMis'>加入错题本</button>
+</view>

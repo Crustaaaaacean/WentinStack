@@ -29,10 +29,10 @@ Page({
     console.log(afterCu)
     const db = wx.cloud.database();
     var db_select = that.data.databaseQ[afterCu];
-    console.log(db_select)
+    console.log('db_select:', db_select)
     db.collection(db_select).limit(1000).get({
       success: function (res) {
-        console.log(res)
+        console.log(res.data)
         that.setData({
           items: res.data
         })
@@ -53,7 +53,7 @@ Page({
     var that = this;
     var i_t = that.data.i;//设置局部变量
     wx.navigateTo({
-      url: '/pages/analysis/analysis?answer=' + that.data.ans[i_t] + '&analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t],
+      url: '/pages/analysis1/analysis1?answer=' + that.data.ans[i_t] + '&analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t],
     })
   },
   radiochange: function (res) {
