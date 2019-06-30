@@ -6,7 +6,7 @@ Page({
     primarySize: 'default',
     disabled: false,
     plain: false,
-    loading: false
+    loading: false,
   },
   bindSubjuctChange: function (e) {
     var that = this;
@@ -22,7 +22,8 @@ Page({
   exam: function(){
     var that = this;
     wx.navigateTo({
-      url: '/pages/exam/exam?indexFromTest=' + that.data.indexS,//数值不能url传参？
+      url: '/pages/exam/exam?indexFromTest=' + that.data.indexS,
+      // url: '/pages/exam/exam?',
     })
   },
 })

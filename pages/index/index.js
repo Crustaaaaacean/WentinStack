@@ -3,7 +3,7 @@ Page({
   data: {
     arrayS: ['计算机类', '马原', '经管', '毛概'],
     arrayD: ['简单', '适中', '难'],
-    arrayT: ['选择', '填空', '简答', '混合'],
+    arrayT: ['选择', '填空', '简答'],
     indexS: 0,
     indexD: 0,
     indexT: 0,
@@ -31,8 +31,20 @@ Page({
     })
   },
   goPractice: function () {
-    wx.navigateTo({
-      url: '/pages/practice/practice',
-    })
+    var that = this;
+    if (that.data.indexT == 0){
+      wx.navigateTo({
+        url: '/pages/practice/practice?indexS=' + that.data.indexS + '&indexD=' + that.data.indexD + '&indexT=' + that.data.indexT,
+      })
+    } else if (that.data.indexT == 1) {
+      wx.navigateTo({
+        url: '/pages/practice1/practice1?indexS=' + that.data.indexS + '&indexD=' + that.data.indexD + '&indexT=' + that.data.indexT,
+      })
+    } else if (that.data.indexT == 2) {
+      wx.navigateTo({
+        url: '/pages/practice2/practice2?indexS=' + that.data.indexS + '&indexD=' + that.data.indexD + '&indexT=' + that.data.indexT,
+      })
+    }
+    
   }
 })

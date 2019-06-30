@@ -1,4 +1,4 @@
-// pages/exp/exp.js
+// pages/misdata/misdata.js
 Page({
 
   /**

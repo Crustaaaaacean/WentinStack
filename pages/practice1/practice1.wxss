@@ -1,0 +1,10 @@
+/* pages/practice1/practice1.wxss */
+.radio-indiv{
+  display: inline;
+  margin: 10rpx;
+  width: 50rpx;
+}
+
+.options-content{
+  display: block;
+}

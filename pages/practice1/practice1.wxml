@@ -1,0 +1,10 @@
+<!--pages/practice1/practice1.wxml-->
+<radio-group class="radio-group" bindchange="radioChange">
+  <text>{{title[i]}}</text>
+  <!-- <input placeholder="输入你的答案" focus="{{focus}}" /> -->
+  <!-- <view class="btn-area">
+    <button bindtap="bindButtonTap">使得输入框获取焦点</button>
+  </view> -->
+  <button bindtap="goAnalysis">查看解析</button>
+  <button bindtap="goNext">下一题</button>
+</radio-group>

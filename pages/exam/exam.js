@@ -14,28 +14,29 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
-    // that.setData({
-    //   index_test: options.indexFromTest
-    // })
-    wx.getStorage({
-      key: 'indexS',
-      success: function (res) {
-        if(res.data != null) {
-          that.setData({
-            index_test: res.data
-          })
-        } else {
-
-        }
-      },
-      fail: function (res) {
-        console.error('fail to switch')
-      }
+    that.setData({
+     index_test: options.indexFromTest
     })
 
+    // wx.getStorage({
+    //   key: 'indexS',
+    //   success: function (res) {
+    //     tmp = res.data;
+    //     that.setData({                           //不能用异步传值
+    //       index_test: tmp
+    //     })
+    //     console.log(that.data.index_test)
+    //   }
+    // })
 
+    // tmp = wx.getStorageSync('indexS');
+    // that.setData({
+    //   index_test: tmp
+    // })
+    
+    var db_select = that.data.databaseQ[that.data.index_test];
     const db = wx.cloud.database();
-    db.collection('Qmao').limit(1000).get({
+    db.collection(db_select).limit(1000).get({
       success: function (res) {
         that.setData({
           items: res.data

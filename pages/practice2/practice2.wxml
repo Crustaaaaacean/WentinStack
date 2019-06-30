@@ -1,0 +1,14 @@
+<!--pages/practice2/practice2.wxml-->
+<radio-group class="radio-group" bindchange="radioChange">
+  <text>{{title[i]}}</text>
+  <label class="radio" wx:for="{{options}}">
+    <view wx:if="{{i == index}}">
+      <label wx:for="{{item}}" class="options-content">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{item}}</text>
+      </label> 
+    </view>
+  </label>
+  <button bindtap="goAnalysis">查看解析</button>
+  <button bindtap="goNext">下一题</button>
+</radio-group>
