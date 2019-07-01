@@ -8,3 +8,58 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.container {
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+} 
+
+page{
+  background-color: rgba(241, 241, 241, 0.315);
+}
+
+.background{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.backimg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.weui-btn{
+  background-color: rgb(112,128,144);
+  color: rgba(241, 251, 255, 0.808);
+}
+
+.weui-btn:after{ 
+  border: none;
+}
+
+.input-style{
+  background-color: rgba(255,255,255,0.3);
+}
+
+.showResult{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(62,67,89);
+  color: white;
+  margin-top: 0;
+  margin-bottom:20rpx;
+}
+
+@import "style/weui.wxss"

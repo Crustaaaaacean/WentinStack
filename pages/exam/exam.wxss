@@ -8,3 +8,7 @@
 .radio{
   display: block;
 }
+
+.model{
+  margin: 20rpx;
+}
