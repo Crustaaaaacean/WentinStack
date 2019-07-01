@@ -7,4 +7,5 @@
   </picker>
 </view>
 
-<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="exam">开始测验</button>
+<button class="testbutton" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="exam">开始测验</button>
+

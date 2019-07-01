@@ -6,68 +6,66 @@ Page({
     correct: 0,
     i: 0,
     title: [],
-    options: [],
+    optionAs: [],
+    optionBs: [],
+    optionCs: [],
+    optionDs: [],
     ans: [],
     analysis: [],
-    index_test: 0,
-    databaseQ: ['Qji','Qma','Qjing','Qmao']
+    index_S: 0,
+    databaseQ: ['Qji_sel_eas', 'Qji_sel_nor', 'Qji_sel_har', 'Qji_fil_eas', 'Qji_fil_nor', 'Qji_fil_har', 'Qji_wri_eas', 'Qji_wri_nor', 'Qji_wri_har', 'Qma_sel_eas', 'Qma_sel_nor', 'Qma_sel_har', 'Qma_fil_eas', 'Qma_fil_nor', 'Qma_fil_har', 'Qma_wri_eas', 'Qma_wri_nor', 'Qma_wri_har', 'Qjing_sel_eas', 'Qjing_sel_nor', 'Qjing_sel_har', 'Qjing_fil_eas', 'Qjing_fil_nor', 'Qjing_fil_har', 'Qjing_wri_eas', 'Qjing_wri_nor', 'Qjing_wri_har', 'Qmao_sel_eas', 'Qmao_sel_nor', 'Qmao_sel_har', 'Qmao_fil_eas', 'Qmao_fil_nor', 'Qmao_fil_har', 'Qmao_wri_eas', 'Qmao_wri_nor', 'Qmao_wri_har']
   },
   onLoad: function (options) {
     var that = this;
-    that.setData({
-     index_test: options.indexFromTest
-    })
-
-    // wx.getStorage({
-    //   key: 'indexS',
-    //   success: function (res) {
-    //     tmp = res.data;
-    //     that.setData({                           //不能用异步传值
-    //       index_test: tmp
-    //     })
-    //     console.log(that.data.index_test)
-    //   }
-    // })
-
-    // tmp = wx.getStorageSync('indexS');
-    // that.setData({
-    //   index_test: tmp
-    // })
-    
-    var db_select = that.data.databaseQ[that.data.index_test];
     const db = wx.cloud.database();
-    db.collection(db_select).limit(1000).get({
-      success: function (res) {
-        that.setData({
-          items: res.data
-        })
-        for (var k = 0; k < that.data.items.length; k++) {
-          var title_t = "title[" + k + "]";
-          var options_t0 = "options[" + k + "][0]";
-          var options_t1 = "options[" + k + "][1]";
-          var options_t2 = "options[" + k + "][2]";
-          var options_t3 = "options[" + k + "][3]";
-          var ans_t = "ans[" + k + "]";
-          var analysis_t = "analysis[" + k + "]";
+    that.setData({
+      index_S: options.indexS,
+    })
+    console.log('indexS', that.data.index_S)     
+    
+    // while(that.data.i < 9)
+    // {
+      var i_t = that.data.i;
+      console.log('i_t', i_t)
+      var afterCu = Number(9 * that.data.index_S) + Number(that.data.i);
+      console.log('afterCu', afterCu)
+      var db_select = that.data.databaseQ[afterCu];
+      console.log('db_select', db_select)
+      db.collection(db_select).limit(1000).get({
+        success: function (res) {
           that.setData({
-            [title_t]: that.data.items[k].title,
-            [options_t0]: that.data.items[k].A,
-            [options_t1]: that.data.items[k].B,
-            [options_t2]: that.data.items[k].C,
-            [options_t3]: that.data.items[k].D,
-            [ans_t]: that.data.items[k].answer,
-            [analysis_t]: that.data.items[k].analysis
+            items: res.data        //获取items如果写在get函数外面就会undefined
           })
+          if (i_t < 3) {
+            var title_t = "title[" + i_t + "]";
+            var options_tA = "optionAs[" + i_t + "]";  //设置字符串变量
+            var options_tB = "optionBs[" + i_t + "]";
+            var options_tC = "optionCs[" + i_t + "]";
+            var options_tD = "optionDs[" + i_t + "]";
+            var ans_t = "ans[" + i_t + "]";
+            var analysis_t = "analysis[" + i_t + "]";
+            that.setData({
+              [title_t]: that.data.items[0].title,
+              [options_tA]: that.data.items[0].A,    //用中括号找字符串所代表的的变量
+              [options_tB]: that.data.items[0].B,
+              [options_tC]: that.data.items[0].C,
+              [options_tD]: that.data.items[0].D,
+              [ans_t]: that.data.items[0].answer,
+              [analysis_t]: that.data.items[0].analysis
+            })
+          } else if (i >= 3 && i < 6) {
+
+          } else if (i >= 6 && i < 9) {
+
+          }
+          that.setData({
+            i: Number(that.data.i) + 1
+          })
+          this.onShow();
         }
-      }
-    })
-  },
-  radiochange: function (res) {
-  },
-  goNext: function () {
-    this.setData({
-      i: this.data.i + 1
-    })
-    this.onLoad();
+      })
+ 
+    // }
   }
+      
 })

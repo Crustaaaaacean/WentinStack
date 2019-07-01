@@ -1,14 +1,99 @@
 <!--pages/exam/exam.wxml-->
-<radio-group class="radio-group" bindchange="radioChange">
-  <text>{{title[i]}}</text>
-  <label class="radio" wx:for="{{options}}">
-    <view wx:if="{{i == index}}">
-      <label wx:for="{{item}}" class="options-content">
+<view>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <text>{{title[0]}}</text>
+    <label class="radio">
         <radio class="radio-indiv" checked="{{item.checked}}"/>
-        <text>{{item}}</text>
-      </label> 
-    </view>
-  </label>
-  <button bindtap="goNext">下一题</button>
-</radio-group>
+        <text>{{optionAs[0]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionBs[0]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionCs[0]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionDs[0]}}</text>
+    </label>
+  </radio-group>
+</view>
+
+<view>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <text>{{title[1]}}</text>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionAs[1]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionBs[1]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionCs[1]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionDs[1]}}</text>
+    </label>
+  </radio-group>
+</view>
+
+<view>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <text>{{title[2]}}</text>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionAs[2]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionBs[2]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionCs[2]}}</text>
+    </label>
+    <label class="radio">
+        <radio class="radio-indiv" checked="{{item.checked}}"/>
+        <text>{{optionDs[2]}}</text>
+    </label>
+  </radio-group>
+</view>
+
+<view>
+  <text>{{title[i]}}</text>
+  <input placeholder="填入你的答案" focus="false"/>
+</view>
+
+<view>
+  <text>{{title[i]}}</text>
+  <input placeholder="填入你的答案" focus="false"/>
+</view>
+
+<view>
+  <text>{{title[i]}}</text>
+  <input placeholder="填入你的答案" focus="false"/>
+</view>
+
+<view>
+  <text>{{title[i]}}</text>
+    <textarea rows="3" cols="20" placeholder="输入你的答案"></textarea>
+</view>
+
+<view>
+  <text>{{title[i]}}</text>
+    <textarea rows="3" cols="20" placeholder="输入你的答案"></textarea>
+</view>
+
+<view>
+  <text>{{title[i]}}</text>
+    <textarea rows="3" cols="20" placeholder="输入你的答案"></textarea>
+</view>
+
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="upload">提交</button>
 

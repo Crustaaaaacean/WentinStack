@@ -1,7 +1,7 @@
 <!--pages/practice2/practice2.wxml-->
-<radio-group class="radio-group" bindchange="radioChange">
+<view>
   <text>{{title[i]}}</text>
   <textarea rows="3" cols="20" placeholder="输入你的答案"></textarea>
   <button bindtap="goAnalysis">查看解析</button>
   <button bindtap="goNext">下一题</button>
-</radio-group>
+</view>

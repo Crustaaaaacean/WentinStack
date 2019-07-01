@@ -22,7 +22,7 @@ Page({
   exam: function(){
     var that = this;
     wx.navigateTo({
-      url: '/pages/exam/exam?indexFromTest=' + that.data.indexS,
+      url: '/pages/exam/exam?indexS=' + that.data.indexS,
       // url: '/pages/exam/exam?',
     })
   },

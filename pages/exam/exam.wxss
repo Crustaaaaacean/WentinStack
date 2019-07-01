@@ -5,6 +5,6 @@
   width: 50rpx;
 }
 
-.options-content{
+.radio{
   display: block;
 }
