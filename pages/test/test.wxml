@@ -1,11 +1,17 @@
 <!--pages/test/test.wxml-->
-<view class="section">
-  <picker bindchange="bindSubjuctChange" value="{{indexS}}" range="{{arrayS}}">
-    <view class="picker">
-      科目：{{arrayS[indexS]}}
-    </view>
-  </picker>
-</view>
+<view class="container">
+  <view class='background'>
+      <image src='/images/background6.png' class='backimg'></image>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <picker bindchange="bindSubjuctChange" value="{{indexS}}" range="{{arrayS}}">
+      <view class="weui-cell">
+        <view class="weui-cell__bd" style="color:rgb(49, 49, 49)">科目</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="color:rgb(49, 49, 49)">{{arrayS[indexS]}}</view>
+      </view>
+    </picker>
+  </view>
 
-<button class="testbutton" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="exam">开始测验</button>
+  <button  size="{{primarySize}}" loading="{{loading}}"   bindtap="exam" class="weui-btn" >开始测验</button>
+</view>
 

@@ -50,6 +50,10 @@ Page({
       })
     }
   },
+  onReady() {
+
+    this.playMusic();
+  },
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -57,4 +61,22 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }})
+  },
+  // 播放背景音乐
+  playMusic() {
+    this.audioCtx = wx.createAudioContext('myAudio');
+    this.audioCtx.play();
+  },
+
+  navExamlogs: function () {//跳转到过往测试记录
+    wx.navigateTo({
+      url: '../examlogs/examlogs'
+    })
+  },
+
+  navMistakes: function () {//跳转到错题本
+    wx.navigateTo({
+      url: '../mistakes/mistakes'
+    })
+  }
+})

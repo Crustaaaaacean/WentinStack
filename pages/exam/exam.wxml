@@ -1,5 +1,8 @@
 <!--pages/exam/exam.wxml-->
 <view class="model">
+  <view class='background'>
+      <image src='/images/background6.png' class='backimg'></image>
+  </view>
   <radio-group class="radio-group" bindchange="radioChange0">
     <text >{{title[0]}}</text>
     <label class="radio">
@@ -95,5 +98,5 @@
   <textarea rows="3" cols="20" placeholder="输入你的答案"></textarea>
 </view>
 
-<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="upload">提交</button>
+<button class='weui-btn' size="{{primarySize}}" loading="{{loading}}"  disabled="{{disabled}}" bindtap="upload">提交</button>
 

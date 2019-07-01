@@ -2,26 +2,38 @@
 .userinfo {
   text-align: center;
   top: 0rpx;
-  position: fixed;
+  position: relative;
+  margin-bottom: 15vh;
+
 }
 
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
+  margin-top: 20vh;
   border-radius: 50%;
+  border: 5px Solid rgba(216, 233, 240, 0.808);
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: rgba(216, 233, 240, 0.808);
   display: block;
 }
 
 .info-nav{
   text-align: center;
-  padding-top: 100rpx;
+  padding-top: 5rpx;
+  padding-bottom:30%;
 }
 
 .info-nav-indi{
   margin: 30rpx;
 }
+
+.hide{
+  display: none !important;
+}
+
+.container {
+  display: flex;
+} 

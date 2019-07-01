@@ -1,14 +1,19 @@
 <!--pages/practice/practice.wxml-->
-<radio-group class="radio-group" bindchange="radioChange">
-  <text>{{title[i]}}</text>
-  <label class="radio" wx:for="{{options}}">
-    <view wx:if="{{i == index}}">
-      <label wx:for="{{item}}" class="options-content">
-        <radio class="radio-indiv" checked="{{item.checked}}"/>
-        <text>{{item}}</text>
-      </label> 
-    </view>
-  </label>
-  <button bindtap="goAnalysis">查看解析</button>
-  <button bindtap="goNext">下一题</button>
-</radio-group>
+<view class='container'>
+  <view class='background'>
+      <image src='/images/background6.png' class='backimg'></image>
+  </view>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <text>{{title[i]}}</text>
+    <label class="radio" wx:for="{{options}}">
+      <view wx:if="{{i == index}}">
+        <label wx:for="{{item}}" class="options-content">
+          <radio class="radio-indiv" checked="{{item.checked}}"/>
+          <text>{{item}}</text>
+        </label> 
+      </view>
+    </label>
+    <button bindtap="goAnalysis" class='weui-btn'>查看解析</button>
+    <button bindtap="goNext" class='weui-btn'>下一题</button>
+  </radio-group>
+</view>

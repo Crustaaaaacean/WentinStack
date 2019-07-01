@@ -1,5 +1,8 @@
 <!--pages/info/info.wxml-->
-<view class="container">
+<view class="container" >
+  <view class='background'>
+      <image src='/images/background5.jpg' class='backimg'></image>
+  </view>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -9,9 +12,17 @@
   </view>
 
   <view class="info-nav">
-    <navigator class='info-nav-indi' url='/pages/examlogs/examlogs'>过往测试记录</navigator>
-    <navigator class='info-nav-indi' url='/pages/mistakes/mistakes'>我的错题本</navigator>
-    <navigator class='info-nav-indi' url='/pages/about/about'>关于全优题库</navigator>
-  </view>
+    <button class="weui-btn" bindtap='navExamlogs'>过往测试记录</button>
+    <button class="weui-btn" bindtap='navMistakes'>我的错题本</button>
+    </view>
+   <view class="weui-footer weui-footer_fixed-bottom">
+      <view class="weui-footer__links">
+        <navigator url="../about/about" class="weui-footer__link">关于全优题库</navigator>
+      </view>
+    </view>
 </view>
+
+<audio id="myAudio" src="/music/Ukulele.mp3" id="myAudio" controls style="width:0;height:0" class="hide" loop="true"></audio>
+
+
 

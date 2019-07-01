@@ -1,12 +1,17 @@
 <!--pages/result/result.wxml-->
-<view>
-  <view><text>{{"答题结束！"}}</text></view>
-  <view><text>正确：{{correct}}</text></view>
-  <view><text>错误：{{error}}</text></view>
-  <view><text>正确率：{{(correct/(correct+error))*100}}{{"%"}}</text></view>
-</view>
-
-<view class='mybutton'>
-     <button bindtap='wrongAnswer' class='blbutton'>查看解析</button>
-     <button bindtap='reset' class='brbutton'>返回首页</button>
+<view class='container'>
+  <view class='background'>
+      <image src='/images/background6.png' class='backimg'></image>
   </view>
+  <view class='showResult'>
+    <view><text>{{"答题结束！"}}</text></view>
+    <view><text>正确：{{correct}}</text></view>
+    <view><text>错误：{{error}}</text></view>
+    <view><text>正确率：{{(correct/(correct+error))*100}}{{"%"}}</text></view>
+  </view>
+
+  <view class='mybutton'>
+    <button bindtap='wrongAnswer' class='weui-btn'>查看解析</button>
+    <button bindtap='reset' class='weui-btn'>返回首页</button>
+  </view>
+</view>

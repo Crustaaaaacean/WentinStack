@@ -1,7 +1,10 @@
 <!--pages/practice2/practice2.wxml-->
-<view>
+<view class='container'>
+  <view class='background'>
+      <image src='/images/background6.png' class='backimg'></image>
+  </view>
   <text>{{title[i]}}</text>
-  <textarea rows="3" cols="20" placeholder="输入你的答案"></textarea>
-  <button bindtap="goAnalysis">查看解析</button>
-  <button bindtap="goNext">下一题</button>
+  <textarea rows="3" cols="20" placeholder="输入你的答案" class='input-style'></textarea>
+  <button bindtap="goAnalysis" class='weui-btn'>查看解析</button>
+  <button bindtap="goNext" class='weui-btn'>下一题</button>
 </view>
