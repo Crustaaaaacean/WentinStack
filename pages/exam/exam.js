@@ -1,9 +1,12 @@
 // pages/exam/exam.js
 Page({
   data: {
+    timer: '',
+    countDownNum: '20',
     items: [],
     error: 0,
     correct: 0,
+    ration: 0,
     i: 0,
     title: [],
     optionAs: [],
@@ -14,12 +17,46 @@ Page({
     ans_tester: [],
     analysis: [],
     index_S: 0,
-    checked: true,
     databaseQ: ['Qji_sel_eas', 'Qji_sel_nor', 'Qji_sel_har', 'Qji_fil_eas', 'Qji_fil_nor', 'Qji_fil_har', 'Qji_wri_eas', 'Qji_wri_nor', 'Qji_wri_har', 'Qma_sel_eas', 'Qma_sel_nor', 'Qma_sel_har', 'Qma_fil_eas', 'Qma_fil_nor', 'Qma_fil_har', 'Qma_wri_eas', 'Qma_wri_nor', 'Qma_wri_har', 'Qjing_sel_eas', 'Qjing_sel_nor', 'Qjing_sel_har', 'Qjing_fil_eas', 'Qjing_fil_nor', 'Qjing_fil_har', 'Qjing_wri_eas', 'Qjing_wri_nor', 'Qjing_wri_har', 'Qmao_sel_eas', 'Qmao_sel_nor', 'Qmao_sel_har', 'Qmao_fil_eas', 'Qmao_fil_nor', 'Qmao_fil_har', 'Qmao_wri_eas', 'Qmao_wri_nor', 'Qmao_wri_har']
+  },
+  countdown: function(){
+    var that = this;
+    var countDownNum = that.data.countDownNum;
+    that.setData({
+      timer: setInterval(
+        function(){
+          countDownNum--;
+          that.setData({
+            countDownNum: countDownNum
+          })
+          if (countDownNum == 0) {
+            clearInterval(that.data.timer)
+            for (let j = 0; j < 6; j++) {
+              if (that.data.ans_tester[j] == that.data.ans[j]) {
+                that.setData({
+                  correct: that.data.correct + 1
+                })
+              } else {
+                that.setData({
+                  error: that.data.error + 1
+                })
+              }
+            }
+            that.setData({
+              ration: 100 * Number(that.data.correct) / (Number(that.data.correct) + Number(that.data.error))
+            })
+            wx.navigateTo({
+              url: '/pages/result/result?ans_tester=' + that.data.ans_tester + '&ans=' + that.data.ans + '&correct=' + that.data.correct + '&error=' + that.data.error + '&ration=' + that.data.ration,
+            })
+          }
+        },1000
+      )
+    })
+
   },
   onLoad: function (options) {
     var that = this;
-
+    this.countdown();
 
     const db = wx.cloud.database();
     that.setData({
@@ -217,10 +254,10 @@ Page({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
         var title_t = "title[" + 6 + "]";
-        var ans_t = "ans[" + 6 + "]";
+        var analysis_t = "analysis[" + 6 + "]";
         that.setData({
           [title_t]: that.data.items[0].title,
-          [ans_t]: that.data.items[0].answer,
+          [analysis_t]: that.data.items[0].analysis,
         })
       }
     })
@@ -241,10 +278,10 @@ Page({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
         var title_t = "title[" + 7 + "]";
-        var ans_t = "ans[" + 7 + "]";
+        var analysis_t = "analysis[" + 7 + "]";
         that.setData({
           [title_t]: that.data.items[0].title,
-          [ans_t]: that.data.items[0].answer,
+          [analysis_t]: that.data.items[0].analysis,
         })
       }
     })
@@ -265,10 +302,10 @@ Page({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
         var title_t = "title[" + 8 + "]";
-        var ans_t = "ans[" + 8 + "]";
+        var analysis_t = "analysis[" + 8 + "]";
         that.setData({
           [title_t]: that.data.items[0].title,
-          [ans_t]: that.data.items[0].answer,
+          [analysis_t]: that.data.items[0].analysis,
         })
       }
     })
@@ -287,5 +324,59 @@ Page({
     this.setData({
       'ans_tester[2]': e.detail.value
     })
-  } 
+  },
+  formName0: function(e){
+    this.setData({
+      'ans_tester[3]': e.detail.value
+    })
+  },
+  formName1: function (e) {
+    this.setData({
+      'ans_tester[4]': e.detail.value
+    })
+  },
+  formName2: function (e) {
+    this.setData({
+      'ans_tester[5]': e.detail.value
+    })
+  },
+  bindTextAreaBlur0: function(e) {
+    this.setData({
+      'ans_tester[6]': e.detail.value
+    })
+  },
+  bindTextAreaBlur1: function (e) {
+    this.setData({
+      'ans_tester[7]': e.detail.value
+    })
+  },
+  bindTextAreaBlur2: function (e) {
+    this.setData({
+      'ans_tester[8]': e.detail.value
+    })
+  },
+  upload: function () {
+    var that = this;
+    for (let j = 0; j < 6; j++){
+      if (that.data.ans_tester[j] == that.data.ans[j])
+      {
+        that.setData({
+          correct: that.data.correct + 1
+        })
+      } else {
+        that.setData({
+          error: that.data.error + 1
+        })
+      }
+    }
+    that.setData({
+      ration: 100 * Number(that.data.correct)/(Number(that.data.correct)+Number(that.data.error))
+    })
+    wx.navigateTo({
+      url: '/pages/result/result?ans_tester=' + that.data.ans_tester + '&ans=' + that.data.ans + '&correct=' + that.data.correct + '&error=' + that.data.error + '&ration=' + that.data.ration,
+    })
+  },
+  onUnload: function() {
+    clearInterval(this.data.timer)
+  }
 })

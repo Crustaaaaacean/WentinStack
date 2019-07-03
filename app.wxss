@@ -19,6 +19,7 @@ page{
   left: 0;
   top: 0;
   z-index: -1;
+  position: fixed;
 }
 
 .backimg{
@@ -38,7 +39,9 @@ page{
 }
 
 .input-style{
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.8);
+  border-bottom: 20rpx;
+  border-top: 20rpx;
 }
 
 .showResult{
@@ -51,5 +54,12 @@ page{
   margin-top: 0;
   margin-bottom:20rpx;
 }
+
+.model{
+  margin: 20rpx;
+  background-color: rgba(255,255,255,0.6);
+}
+
+
 
 @import "style/weui.wxss"

@@ -1,6 +1,11 @@
 <!--pages/analysis1/analysis1.wxml-->
 <view>
+  <view class='background'>
+      <image src='/images/background6.png' class='backimg'></image>
+  </view>
+  <view class='model'>
   <view>答案：{{answer}}</view>
-  <view>解析：{{analysis}}</view>
-  <button type="primary" bindtap='addToMis'>加入错题本</button>
+  <view>解析：{{analysis}}</view></view>
+  <button bindtap='addToMis' class='weui-btn' wx:if='{{type==0}}'>加入错题本</button>
+  <button bindtap='goBack' class='weui-btn' wx:if='{{type==1}}'>返回</button>
 </view>

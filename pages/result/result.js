@@ -5,10 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    A: 2,
-    B: 3,
-    C: 5,
-    D: 0,
+    ration: 0,
     correct: 0,
     error: 0
   },
@@ -18,16 +15,14 @@ Page({
   onLoad: function (options) {
    console.log(options)
     this.setData({
-      A: options.A - 0,
-      B: options.B - 0,
-      C: options.C - 0,
-      D: options.D - 0,
-      correct: options.correct -0,
-      error: options.error -0
+      correct: options.correct - 0,
+      error: options.error - 0,
+      ration: options.ration - 0
     })
   },
   reset: function(){
     wx.navigateBack({
+      delta: 2
     })
   },
   wrongAnswer: function(){

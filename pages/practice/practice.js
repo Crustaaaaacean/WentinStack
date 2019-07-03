@@ -64,10 +64,16 @@ Page({
   radiochange: function (res) {
   },
   goNext: function(){
-    this.setData({ //不用setData wxml的i不跟着变化
-      i: this.data.i + 1
-    })
-    this.onShow(); //不能用onLoad（）
+    if(this.data.i < 4){
+      this.setData({ //不用setData wxml的i不跟着变化
+        i: this.data.i + 1
+      })
+      this.onShow(); //不能用onLoad（）
+    } else {
+      wx.navigateBack({
+        
+      })
+    }
   }
 })
 

@@ -11,4 +11,9 @@
 
 .model{
   margin: 20rpx;
+  background-color: rgba(255,255,255,0.6);
+}
+
+.input-style{
+  border: 5rpx solid rgb(71, 107, 141);
 }
