@@ -49,15 +49,26 @@ Page({
     var that = this;
     var i_t = that.data.i;//设置局部变量
     wx.navigateTo({
-      url: '/pages/analysis2/analysis2?analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t],
+      url: '/pages/analysis2/analysis2?analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t] + '&type=' + 0,
     })
   },
   radiochange: function (res) {
   },
   goNext: function () {
-    this.setData({ //不用setData wxml的i不跟着变化
-      i: this.data.i + 1
-    })
-    this.onShow(); //不能用onLoad（）
+    var that = this;
+    if (that.data.i < 1) {
+      that.setData({ //不用setData wxml的i不跟着变化
+        i: that.data.i + 1
+      })
+      that.onShow(); //不能用onLoad（）
+    } else {
+      wx.navigateBack({
+      })
+      wx.showModal({
+        title: '提示',
+        content: '恭喜您完成练习',
+        showCancel: false
+      })
+    }
   }
 })

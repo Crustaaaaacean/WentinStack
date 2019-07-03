@@ -8,3 +8,7 @@
 .options-content{
   display: block;
 }
+
+.input-style{
+  width: 100vh;
+}

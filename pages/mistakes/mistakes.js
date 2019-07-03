@@ -1,18 +1,43 @@
 // pages/mistakes/mistakes.js
 Page({
-  clearAllMis: function(){
-    wx.navigateBack({
-    })
-    wx.showModal({
-      title: '提示',
-      content: '错题本已清空',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('successClear')
-        } else {
-          console.log('failedClear')
-        }
+  data:{
+    items: [],
+    items_length: null
+  },
+  onLoad: function(){
+    var that = this;
+    const db = wx.cloud.database();
+    db.collection('mistakes').limit(1000).get({
+      success: function(res){
+        that.setData({
+          items: res.data,
+          items_length: res.data.length
+        })
       }
     })
+  },
+  goAnalysis: function(options){
+    var that = this;
+    var selectPage = options.currentTarget.id;
+    if(that.data.items[selectPage].type == 0){
+      wx.navigateTo({
+        url: '/pages/analysis/analysis?answer=' + that.data.items[selectPage].answer + '&analysis=' + that.data.items[selectPage].analysis + '&title=' + that.data.items[selectPage].title + '&A=' + that.data.items[selectPage].A + '&B=' + that.data.items[selectPage].B + '&C=' + that.data.items[selectPage].C + '&D=' + that.data.items[selectPage].D + '&type=' + 1,
+      })
+    } else if (that.data.items[selectPage].type == 1) {
+      wx.navigateTo({
+        url: '/pages/analysis1/analysis1?answer=' + that.data.items[selectPage].answer + '&analysis=' + that.data.items[selectPage].analysis + '&title=' + that.data.items[selectPage].title + '&type=' + 1,
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/analysis2/analysis2?analysis=' + that.data.items[selectPage].analysis + '&title=' + that.data.items[selectPage].title + '&type=' + 1,
+      })
+    }
+  },
+  removeQuestion: function(options){
+    const db = wx.cloud.database();
+    var select = options.currentTarget.id;
+    var id_r = this.data.items[select]._id;
+    db.collection('mistakes').doc(id_r).remove();
+    this.onLoad();
   }
 })

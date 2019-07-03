@@ -3,7 +3,8 @@
   <view class='background'>
       <image src='/images/background6.png' class='backimg'></image>
   </view>
-  <text>{{title[i]}}</text>
+  <view class='input-style'>
+  <text >{{title[i]}}</text></view>
   <input  class='input-style' placeholder="输入你的答案" focus="true"/>
   <button bindtap="goAnalysis" class='weui-btn'>查看解析</button>
   <button bindtap="goNext" class='weui-btn'>下一题</button>
