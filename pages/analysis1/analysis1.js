@@ -1,6 +1,7 @@
 // pages/analysis1/analysis1.js
 Page({
   data: {
+    id: null,
     analysis: null,
     answer: null,
     title: null
@@ -11,7 +12,8 @@ Page({
       analysis: options.analysis,
       answer: options.answer,
       title: options.title,
-      type: options.type
+      type: options.type,
+      id: options.id
     })
   },
   addToMis: function () {
@@ -23,7 +25,8 @@ Page({
         title: that.data.title,
         analysis: that.data.analysis,
         answer: that.data.answer,
-        type: 1
+        type: 1,
+        id: that.data.id
       },
       success: function (res) {// res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
         wx.navigateBack({

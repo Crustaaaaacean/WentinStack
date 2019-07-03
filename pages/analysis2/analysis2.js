@@ -1,6 +1,7 @@
 // pages/analysis2/analysis2.js
 Page({
   data: {
+    id: null,
     analysis: null,
     title: null
   },
@@ -9,7 +10,8 @@ Page({
     that.setData({
       analysis: options.analysis,
       title: options.title,
-      type: options.type
+      type: options.type,
+      id: options.id
     })
   },
   addToMis: function () {
@@ -18,6 +20,7 @@ Page({
     db.collection('mistakes').add({
       // data 字段表示需新增的 JSON 数据
       data: {
+        _id: that.data.id,
         title: that.data.title,
         analysis: that.data.analysis,
         type: 2
@@ -34,7 +37,7 @@ Page({
       fail: function () {
         wx.showModal({
           title: '提示',
-          content: '加入错题本失败',
+          content: '错题本已有该题',
           showCancel: false
         })
       }

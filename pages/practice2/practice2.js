@@ -1,6 +1,7 @@
 // pages/practice2/practice2.js
 Page({
   data: {
+    id: [],
     items: [],
     error: 0,
     correct: 0,
@@ -35,9 +36,11 @@ Page({
           items: res.data
         })
         for (var k = 0; k < that.data.items.length; k++) {
+          var id_t = "id[" + k + "]";
           var title_t = "title[" + k + "]";
           var analysis_t = "analysis[" + k + "]";
           that.setData({
+            [id_t]: that.data.items[k]._id,
             [title_t]: that.data.items[k].title,
             [analysis_t]: that.data.items[k].analysis
           })
@@ -49,7 +52,7 @@ Page({
     var that = this;
     var i_t = that.data.i;//设置局部变量
     wx.navigateTo({
-      url: '/pages/analysis2/analysis2?analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t] + '&type=' + 0,
+      url: '/pages/analysis2/analysis2?analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t] + '&type=' + 0 + '&id=' + that.data.id[i_t],
     })
   },
   radiochange: function (res) {

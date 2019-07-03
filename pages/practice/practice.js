@@ -2,6 +2,7 @@
 Page({
   data: {
     items: [],
+    id: [],
     error: 0,
     correct: 0,
     i: 0,
@@ -36,6 +37,7 @@ Page({
           items: res.data      
     })
       for (var k = 0; k < that.data.items.length; k++) {
+        var id_t = "id[" + k + "]";
         var title_t = "title[" + k + "]";
         var options_t0 = "options[" + k + "][0]";  //设置字符串变量
         var options_t1 = "options[" + k + "][1]";
@@ -44,6 +46,7 @@ Page({
         var ans_t = "ans[" + k + "]";
         var analysis_t = "analysis[" + k + "]";
         that.setData({
+          [id_t]: that.data.items[k]._id,
           [title_t]: that.data.items[k].title,
           [options_t0]: that.data.items[k].A,    //用中括号找字符串所代表的的变量
           [options_t1]: that.data.items[k].B,
@@ -59,7 +62,7 @@ Page({
     var that = this;
     var i_t = that.data.i;//设置局部变量
     wx.navigateTo({
-      url: '/pages/analysis/analysis?answer=' + that.data.ans[i_t] + '&analysis=' + that.data.analysis[i_t] + '&A=' + that.data.options[i_t][0] + '&B=' + that.data.options[i_t][1] + '&C=' + that.data.options[i_t][2] + '&D=' + that.data.options[i_t][3] + '&title=' + that.data.title[i_t] + '&type=' + 0,
+      url: '/pages/analysis/analysis?answer=' + that.data.ans[i_t] + '&analysis=' + that.data.analysis[i_t] + '&A=' + that.data.options[i_t][0] + '&B=' + that.data.options[i_t][1] + '&C=' + that.data.options[i_t][2] + '&D=' + that.data.options[i_t][3] + '&title=' + that.data.title[i_t] + '&type=' + 0 + '&id=' + that.data.id[i_t],
     })
   },
   radioChange:function(e){

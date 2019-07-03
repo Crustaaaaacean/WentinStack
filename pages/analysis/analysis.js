@@ -1,6 +1,7 @@
 // pages/analysis/analysis.js
 Page({
   data:{
+    id: null,
     analysis: null,
     answer: null,
     title: null,
@@ -20,7 +21,8 @@ Page({
       B: options.B,
       C: options.C,
       D: options.D,
-      type: options.type
+      type: options.type,
+      id: options.id
     })
   },
   addToMis: function(){
@@ -29,6 +31,7 @@ Page({
     db.collection('mistakes').add({
       // data 字段表示需新增的 JSON 数据
       data: {
+        _id: that.data.id,
         A: that.data.A,
         B: that.data.B,
         C: that.data.C,

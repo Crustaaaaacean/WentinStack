@@ -1,6 +1,7 @@
 // pages/practice1/practice1.js
 Page({
   data: {
+    id: [],
     items: [],
     error: 0,
     correct: 0,
@@ -37,10 +38,12 @@ Page({
           items: res.data
         })
         for (var k = 0; k < that.data.items.length; k++) {
+          var id_t = "id[" + k + "]";
           var title_t = "title[" + k + "]";
           var ans_t = "ans[" + k + "]";
           var analysis_t = "analysis[" + k + "]";
           that.setData({
+            [id_t]: that.data.items[k]._id,
             [title_t]: that.data.items[k].title,
             [ans_t]: that.data.items[k].answer,
             [analysis_t]: that.data.items[k].analysis
@@ -53,7 +56,7 @@ Page({
     var that = this;
     var i_t = that.data.i;//设置局部变量
     wx.navigateTo({
-      url: '/pages/analysis1/analysis1?answer=' + that.data.ans[i_t] + '&analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t] + '&type=' + 0,
+      url: '/pages/analysis1/analysis1?answer=' + that.data.ans[i_t] + '&analysis=' + that.data.analysis[i_t] + '&title=' + that.data.title[i_t] + '&type=' + 0 + '&id=' + that.data.id[i_t],
     })
   },
   goNext: function () {
