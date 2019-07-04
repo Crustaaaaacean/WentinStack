@@ -1,103 +1,106 @@
 <!--pages/exam/exam.wxml-->
+
 <view class='countDown'>倒计时：<text style='color:red'>{{countDownNum}}</text>s</view>
-<view class="model">
-  <view class='background'>
-      <image src='/images/background6.png' class='backimg'></image>
+<view class='background'>
+  <image src='/images/background6.png' class='backimg'></image>
+</view>
+<scroll-view scroll-y='true' class='show-scroll'>
+  <view class="model">
+    <radio-group class="radio-group" bindchange="radioChange0">
+      <text >{{title[0]}}</text>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="A"/>
+          <text>{{optionAs[0]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="B"/>
+          <text>{{optionBs[0]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="C"/>
+          <text>{{optionCs[0]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="D"/>
+          <text>{{optionDs[0]}}</text>
+      </label>
+    </radio-group>
   </view>
-  <radio-group class="radio-group" bindchange="radioChange0">
-    <text >{{title[0]}}</text>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="A"/>
-        <text>{{optionAs[0]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="B"/>
-        <text>{{optionBs[0]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="C"/>
-        <text>{{optionCs[0]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="D"/>
-        <text>{{optionDs[0]}}</text>
-    </label>
-  </radio-group>
-</view>
 
-<view class="model">
-  <radio-group class="radio-group" bindchange="radioChange1">
-    <text>{{title[1]}}</text>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="A"/>
-        <text>{{optionAs[1]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="B"/>
-        <text>{{optionBs[1]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="C"/>
-        <text>{{optionCs[1]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="D"/>
-        <text>{{optionDs[1]}}</text>
-    </label>
-  </radio-group>
-</view>
+  <view class="model">
+    <radio-group class="radio-group" bindchange="radioChange1">
+      <text>{{title[1]}}</text>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="A"/>
+          <text>{{optionAs[1]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="B"/>
+          <text>{{optionBs[1]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="C"/>
+          <text>{{optionCs[1]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="D"/>
+          <text>{{optionDs[1]}}</text>
+      </label>
+    </radio-group>
+  </view>
 
-<view class="model">
-  <radio-group class="radio-group" bindchange="radioChange2">
-    <text>{{title[2]}}</text>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="A"/>
-        <text>{{optionAs[2]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="B"/>
-        <text>{{optionBs[2]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="C"/>
-        <text>{{optionCs[2]}}</text>
-    </label>
-    <label class="radio">
-        <radio class="radio-indiv" checked="{{item.checked}}" value="D"/>
-        <text>{{optionDs[2]}}</text>
-    </label>
-  </radio-group>
-</view>
+  <view class="model">
+    <radio-group class="radio-group" bindchange="radioChange2">
+      <text>{{title[2]}}</text>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="A"/>
+          <text>{{optionAs[2]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="B"/>
+          <text>{{optionBs[2]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="C"/>
+          <text>{{optionCs[2]}}</text>
+      </label>
+      <label class="radio">
+          <radio class="radio-indiv" checked="{{item.checked}}" value="D"/>
+          <text>{{optionDs[2]}}</text>
+      </label>
+    </radio-group>
+  </view>
 
-<view class="model">
-  <text>{{title[3]}}</text>
-  <input class='input-style' placeholder="填入你的答案" focus="false" bindinput='formName0'/>
-</view>
+  <view class="model">
+    <text>{{title[3]}}</text>
+    <input class='input-style' placeholder="填入你的答案" focus="false" bindinput='formName0'/>
+  </view>
 
-<view class="model">
-  <text>{{title[4]}}</text>
-  <input class='input-style' placeholder="填入你的答案" focus="false" bindinput='formName1'/>
-</view>
+  <view class="model">
+    <text>{{title[4]}}</text>
+    <input class='input-style' placeholder="填入你的答案" focus="false" bindinput='formName1'/>
+  </view>
 
-<view class="model">
-  <text>{{title[5]}}</text>
-  <input class='input-style' placeholder="填入你的答案" focus="false" bindinput='formName2'/>
-</view>
+  <view class="model">
+    <text>{{title[5]}}</text>
+    <input class='input-style' placeholder="填入你的答案" focus="false" bindinput='formName2'/>
+  </view>
 
-<view class="model">
-  <text>{{title[6]}}</text>
-    <textarea class='input-style' rows="3" cols="20" placeholder="输入你的答案" bindblur='bindTextAreaBlur0'></textarea>
-</view>
+  <view class="model">
+    <text>{{title[6]}}</text>
+      <textarea class='input-style' rows="3" cols="20" placeholder="输入你的答案" bindblur='bindTextAreaBlur0'></textarea>
+  </view>
 
-<view class="model">
-  <text>{{title[7]}}</text>
-    <textarea class='input-style' rows="3" cols="20" placeholder="输入你的答案" bindblur='bindTextAreaBlur1'></textarea>
-</view>
+  <view class="model">
+    <text>{{title[7]}}</text>
+      <textarea class='input-style' rows="3" cols="20" placeholder="输入你的答案" bindblur='bindTextAreaBlur1'></textarea>
+  </view>
 
-<view class="model">
-  <text>{{title[8]}}</text>
-  <textarea class='input-style' rows="3" cols="20" placeholder="输入你的答案" bindblur='bindTextAreaBlur2'></textarea>
-</view>
+  <view class="model">
+    <text>{{title[8]}}</text>
+    <textarea class='input-style' rows="3" cols="20" placeholder="输入你的答案" bindblur='bindTextAreaBlur2'></textarea>
+  </view>
 
-<button class='weui-btn' size="{{primarySize}}" loading="{{loading}}"  disabled="{{disabled}}" bindtap="upload">提交</button>
+  <view><button class='weui-btn' size="{{primarySize}}" loading="{{loading}}"  disabled="{{disabled}}" bindtap="upload">提交</button></view>
 
+</scroll-view>

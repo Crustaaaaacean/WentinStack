@@ -10,6 +10,8 @@
     <view>{{item.C}}</view>
     <view>{{item.D}}</view>
   </view>
-  <button bindtap="goAnalysis" class='weui-btn' id='{{index}}'>查看解析</button>
-  <button bindtap="removeQuestion" class='weui-btn' id='{{index}}'>从错题本移除该题</button>
+  <view class='show-btn'>
+    <button bindtap="goAnalysis" class='weui-btn' id='{{index}}'>查看解析</button>
+    <button bindtap="removeQuestion" class='weui-btn' id='{{index}}'>从错题本移除该题   </button>
+  </view>
 </view>

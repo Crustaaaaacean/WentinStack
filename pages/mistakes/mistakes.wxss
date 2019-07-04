@@ -1,1 +1,11 @@
 /* pages/mistakes/mistakes.wxss */
+.show-btn{
+  align-items:baseline;
+  padding:20rpx;
+  display:inline-flex;
+  justify-content:space-between;
+}
+
+.weui-btn{
+  height:90rpx;
+}

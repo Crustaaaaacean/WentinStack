@@ -1,8 +1,16 @@
 /* pages/exam/exam.wxss */
+page {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  
+}
+
 .radio-indiv{
   display: inline;
   margin: 10rpx;
-  width: 50rpx;
+
 }
 
 .radio{
@@ -12,8 +20,24 @@
 .model{
   margin: 20rpx;
   background-color: rgba(255,255,255,0.6);
+  
 }
 
 .input-style{
   border: 5rpx solid rgb(71, 107, 141);
+}
+
+.countDown{
+  position:fixed;
+  top:0;
+  float:ture;
+}
+
+
+
+.show-scroll{
+  position:absolute;
+  bottom: 0;
+  
+  height: 94vh;
 }
