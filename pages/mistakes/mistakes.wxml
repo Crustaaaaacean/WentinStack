@@ -2,7 +2,7 @@
 <view class='background'>
     <image src='/images/background6.png' class='backimg'></image>
 </view>
-<view class="mistake_view" wx:for="{{items}}">
+<view class="container" wx:for="{{items}}">
   <view>{{item.title}}</view>
   <view wx:if='{{item.type==0}}'>
     <view>{{item.A}}</view>
@@ -12,6 +12,6 @@
   </view>
   <view class='show-btn'>
     <button bindtap="goAnalysis" class='weui-btn' id='{{index}}'>查看解析</button>
-    <button bindtap="removeQuestion" class='weui-btn' id='{{index}}'>从错题本移除该题   </button>
+    <button bindtap="removeQuestion" class='weui-btn' id='{{index}}'>移除该题</button>
   </view>
 </view>

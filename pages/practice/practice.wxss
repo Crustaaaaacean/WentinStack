@@ -2,7 +2,7 @@
 .radio-indiv{
   display: inline;
   margin: 10rpx;
-  width: 50rpx;
+  /* width: 50rpx; */
 }
 
 .options-content{
