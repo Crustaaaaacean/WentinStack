@@ -53,7 +53,7 @@ Page({
       fail: function() {
         wx.showModal({
           title: '提示',
-          content: '加入错题本失败',
+          content: '错题本已有该题',
           showCancel: false
         })
       }

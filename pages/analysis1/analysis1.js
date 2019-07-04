@@ -26,11 +26,9 @@ Page({
         analysis: that.data.analysis,
         answer: that.data.answer,
         type: 1,
-        id: that.data.id
+        _id: that.data.id
       },
       success: function (res) {// res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        wx.navigateBack({
-        }),
           wx.showModal({
             title: '提示',
             content: '已加入错题本',
@@ -40,7 +38,7 @@ Page({
       fail: function () {
         wx.showModal({
           title: '提示',
-          content: '加入错题本失败',
+          content: '错题本已有该题',
           showCancel: false
         })
       }

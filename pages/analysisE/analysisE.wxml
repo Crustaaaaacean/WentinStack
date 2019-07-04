@@ -1,0 +1,22 @@
+<!--pages/analysisE/analysisE.wxml-->
+<view class='background'>
+      <image src='/images/background6.png' class='backimg'></image>
+</view>
+<view wx:for='{{analysis}}'>
+  <view class='model'>
+    <view>题目：{{title[index]}}</view>
+    <view wx:if='{{index<3}}'>{{A[index]}}</view>
+    <view wx:if='{{index<3}}'>{{B[index]}}</view>
+    <view wx:if='{{index<3}}'>{{C[index]}}</view>
+    <view wx:if='{{index<3}}'>{{D[index]}}</view>
+    <view wx:if='{{judge[index]==1}}' hidden='{{index>=6}}'>✅你答对了</view>
+    <view wx:else hidden='{{index>=6}}'>❌你答错了</view>
+    <view hidden='{{index<6}}'>简答题不判断正误</view>
+    <view hidden='{{index >= 6}}'>答案：{{answer[index]}}</view>
+    <view>解析：{{analysis[index]}}</view>
+    <button bindtap='addToMis' class='weui-btn' id='{{index}}'>加入错题本</button>
+  </view>
+</view>
+
+
+

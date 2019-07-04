@@ -1,8 +1,10 @@
 // pages/exam/exam.js
+var util = require('../../utils/util.js');
 Page({
   data: {
+    id: [],
     timer: '',
-    countDownNum: '20',
+    countDownNum: '60',
     items: [],
     error: 0,
     correct: 0,
@@ -17,6 +19,7 @@ Page({
     ans_tester: [],
     analysis: [],
     index_S: 0,
+    judge: [],
     databaseQ: ['Qji_sel_eas', 'Qji_sel_nor', 'Qji_sel_har', 'Qji_fil_eas', 'Qji_fil_nor', 'Qji_fil_har', 'Qji_wri_eas', 'Qji_wri_nor', 'Qji_wri_har', 'Qma_sel_eas', 'Qma_sel_nor', 'Qma_sel_har', 'Qma_fil_eas', 'Qma_fil_nor', 'Qma_fil_har', 'Qma_wri_eas', 'Qma_wri_nor', 'Qma_wri_har', 'Qjing_sel_eas', 'Qjing_sel_nor', 'Qjing_sel_har', 'Qjing_fil_eas', 'Qjing_fil_nor', 'Qjing_fil_har', 'Qjing_wri_eas', 'Qjing_wri_nor', 'Qjing_wri_har', 'Qmao_sel_eas', 'Qmao_sel_nor', 'Qmao_sel_har', 'Qmao_fil_eas', 'Qmao_fil_nor', 'Qmao_fil_har', 'Qmao_wri_eas', 'Qmao_wri_nor', 'Qmao_wri_har']
   },
   countdown: function(){
@@ -46,7 +49,7 @@ Page({
               ration: 100 * Number(that.data.correct) / (Number(that.data.correct) + Number(that.data.error))
             })
             wx.navigateTo({
-              url: '/pages/result/result?ans_tester=' + that.data.ans_tester + '&ans=' + that.data.ans + '&correct=' + that.data.correct + '&error=' + that.data.error + '&ration=' + that.data.ration,
+              url: '/pages/result/result?ans_tester=' + that.data.ans_tester + '&answer=' + that.data.ans + '&correct=' + that.data.correct + '&error=' + that.data.error + '&ration=' + that.data.ration + '&analysis=' + that.data.analysis,
             })
           }
         },1000
@@ -73,6 +76,7 @@ Page({
       that.setData({
         items: res.data        //获取items如果写在get函数外面就会undefined
       })
+        var id_t = "id[" + 0 + "]";
         var title_t = "title[" + 0 + "]";
         var options_tA = "optionAs[" + 0 + "]";  //设置字符串变量
         var options_tB = "optionBs[" + 0 + "]";
@@ -81,6 +85,7 @@ Page({
         var ans_t = "ans[" + 0 + "]";
         var analysis_t = "analysis[" + 0 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [options_tA]: that.data.items[0].A,    //用中括号找字符串所代表的的变量
           [options_tB]: that.data.items[0].B,
@@ -107,6 +112,7 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 1 + "]";
         var title_t = "title[" + 1 + "]";
         var options_tA = "optionAs[" + 1 + "]";  //设置字符串变量
         var options_tB = "optionBs[" + 1 + "]";
@@ -115,6 +121,7 @@ Page({
         var ans_t = "ans[" + 1 + "]";
         var analysis_t = "analysis[" + 1 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [options_tA]: that.data.items[0].A,    //用中括号找字符串所代表的的变量
           [options_tB]: that.data.items[0].B,
@@ -141,6 +148,7 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 2 + "]";
         var title_t = "title[" + 2 + "]";
         var options_tA = "optionAs[" + 2 + "]";  //设置字符串变量
         var options_tB = "optionBs[" + 2 + "]";
@@ -149,6 +157,7 @@ Page({
         var ans_t = "ans[" + 2 + "]";
         var analysis_t = "analysis[" + 2 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [options_tA]: that.data.items[0].A,    //用中括号找字符串所代表的的变量
           [options_tB]: that.data.items[0].B,
@@ -175,10 +184,12 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 3 + "]";
         var title_t = "title[" + 3 + "]";
         var ans_t = "ans[" + 3 + "]";
         var analysis_t = "analysis[" + 3 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [ans_t]: that.data.items[0].answer,
           [analysis_t]: that.data.items[0].analysis
@@ -201,10 +212,12 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 4 + "]";
         var title_t = "title[" + 4 + "]";
         var ans_t = "ans[" + 4 + "]";
         var analysis_t = "analysis[" + 4 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [ans_t]: that.data.items[0].answer,
           [analysis_t]: that.data.items[0].analysis
@@ -227,10 +240,12 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 5 + "]";
         var title_t = "title[" + 5 + "]";
         var ans_t = "ans[" + 5 + "]";
         var analysis_t = "analysis[" + 5 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [ans_t]: that.data.items[0].answer,
           [analysis_t]: that.data.items[0].analysis
@@ -253,9 +268,11 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 6 + "]";
         var title_t = "title[" + 6 + "]";
         var analysis_t = "analysis[" + 6 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [analysis_t]: that.data.items[0].analysis,
         })
@@ -277,9 +294,11 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 7 + "]";
         var title_t = "title[" + 7 + "]";
         var analysis_t = "analysis[" + 7 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [analysis_t]: that.data.items[0].analysis,
         })
@@ -301,9 +320,11 @@ Page({
         that.setData({
           items: res.data        //获取items如果写在get函数外面就会undefined
         })
+        var id_t = "id[" + 8 + "]";
         var title_t = "title[" + 8 + "]";
         var analysis_t = "analysis[" + 8 + "]";
         that.setData({
+          [id_t]: that.data.items[0]._id,
           [title_t]: that.data.items[0].title,
           [analysis_t]: that.data.items[0].analysis,
         })
@@ -357,14 +378,19 @@ Page({
   },
   upload: function () {
     var that = this;
+    // var time = util.formatTime(newDate())
+    // console.log(time)
     for (let j = 0; j < 6; j++){
+      var tmp = 'judge[' + j + ']';
       if (that.data.ans_tester[j] == that.data.ans[j])
       {
         that.setData({
+          [tmp]: 1,
           correct: that.data.correct + 1
         })
       } else {
         that.setData({
+          [tmp]: 0,
           error: that.data.error + 1
         })
       }
@@ -372,9 +398,47 @@ Page({
     that.setData({
       ration: 100 * Number(that.data.correct)/(Number(that.data.correct)+Number(that.data.error))
     })
-    wx.navigateTo({
-      url: '/pages/result/result?ans_tester=' + that.data.ans_tester + '&ans=' + that.data.ans + '&correct=' + that.data.correct + '&error=' + that.data.error + '&ration=' + that.data.ration,
+    console.log(that.data.ans)
+    wx.redirectTo({
+      url: '/pages/result/result?ans_tester=' + that.data.ans_tester + '&answer=' + that.data.ans + '&correct=' + that.data.correct + '&error=' + that.data.error + '&ration=' + that.data.ration + '&analysis=' + that.data.analysis,
     })
+    wx.setStorage({   //缓存传参
+      key: "analysis",
+      data: that.data.analysis
+    })
+    wx.setStorage({   //缓存传参
+      key: "answer",
+      data: that.data.ans
+    })
+    wx.setStorage({
+      key: 'title',
+      data: that.data.title,
+    })
+    wx.setStorage({
+      key: 'judge',
+      data: that.data.judge,
+    })
+    wx.setStorage({
+      key: 'id',
+      data: that.data.id,
+    })
+    wx.setStorage({
+      key: 'A',
+      data: that.data.optionAs,
+    })
+    wx.setStorage({
+      key: 'B',
+      data: that.data.optionBs,
+    })
+    wx.setStorage({
+      key: 'C',
+      data: that.data.optionCs,
+    })
+    wx.setStorage({
+      key: 'D',
+      data: that.data.optionDs,
+    })
+    clearInterval(this.data.timer)
   },
   onUnload: function() {
     clearInterval(this.data.timer)

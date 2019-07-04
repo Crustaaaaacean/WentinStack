@@ -18,7 +18,7 @@ Page({
   },
   goAnalysis: function(options){
     var that = this;
-    var selectPage = options.currentTarget.id;
+    var selectPage = options.currentTarget.id;//获取题目索引
     if(that.data.items[selectPage].type == 0){
       wx.navigateTo({
         url: '/pages/analysis/analysis?answer=' + that.data.items[selectPage].answer + '&analysis=' + that.data.items[selectPage].analysis + '&title=' + that.data.items[selectPage].title + '&A=' + that.data.items[selectPage].A + '&B=' + that.data.items[selectPage].B + '&C=' + that.data.items[selectPage].C + '&D=' + that.data.items[selectPage].D + '&type=' + 1 + '&id=' + that.data.items[selectPage].id,
@@ -37,6 +37,7 @@ Page({
     const db = wx.cloud.database();
     var select = options.currentTarget.id;
     var id_r = this.data.items[select]._id;
+    console.log(id_r)
     db.collection('mistakes').doc(id_r).remove();
     this.onLoad();
   }
