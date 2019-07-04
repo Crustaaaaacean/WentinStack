@@ -4,7 +4,7 @@ Page({
   data:{
     logi:[],
     result:[],
-    subject:[],
+    subjecti: [],
     array:['计算机类','马原','经管','毛概' ]
   },
 
@@ -14,24 +14,18 @@ Page({
     var value2=wx.getStorageSync('ration');
 
     this.setData({
-      logi:value,
-      subject:this.data.array[value1]?this.data.array[value1]:null,
-      result:value2
-      
+      logi: value,
+      subjecti: value1,
+      result: value2
     })
-    console.log('v', value)
+
+    console.log('v', value1)
 
   },
 
 
   clearAllElogs:function(){
     wx.clearStorage()
-    // wx.removeStorage({
-    //   key: 'logi',
-    //   success: function(res) {
-    //     console.log('ok')
-    //   },
-    // })
     wx.navigateBack({
     })
     wx.showModal({

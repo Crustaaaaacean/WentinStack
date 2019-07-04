@@ -20,11 +20,9 @@ Page({
       ration: options.ration - 0,
     })
 
-    wx.setStorage({
-      key: 'ration',
-      data: this.data.ration,
-    })
-    
+    var tmp = wx.getStorageSync('ration') || [];
+    tmp.unshift(this.data.ration);
+    wx.setStorageSync('ration', tmp)
 
   },
 

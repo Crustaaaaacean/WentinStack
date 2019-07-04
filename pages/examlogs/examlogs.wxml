@@ -3,12 +3,11 @@
     <image src='/images/background6.png' class='backimg'></image>
 </view>
 
-<view class='sim' wx:for='{{logi}}' wx:for-item='log'>
-
+<view class='sim' wx:for='{{logi}}' wx:for-item='log' wx:for-index='i'>
   <view>测试日期：</view>
-  <view class="log-item">{{index+1}}.{{log}}</view>
-  <view>科目：</view><view>{{subject}}</view>
-  <view>正确率：</view><view>{{result}}%</view>
+  <view class="log-item">{{i+1}}.{{log}}</view>
+  <view>科目：{{array[subjecti[i]]}}</view>
+  <view>正确率：{{result[i]}}%</view>
 </view>
 
 <button bindtap='clearAllElogs' class='weui-btn'>清除测试记录</button>

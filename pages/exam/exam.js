@@ -380,8 +380,6 @@ Page({
   },
   upload: function () {
     
-    // var time = util.formatTime(newDate())
-    // console.log(time)
 
     this.setData({
       logi: (wx.getStorageSync('logi') || []).map(log => {

@@ -2,7 +2,7 @@
 Page({
   data: {
     arrayS: ['计算机类', '马原', '经管', '毛概'],
-    indexS: [],
+    indexS: 0,
     primarySize: 'default',
     disabled: false,
     plain: false,
@@ -17,10 +17,13 @@ Page({
   },
   exam: function(){
     var that = this;
-    wx.setStorageSync('indexS', that.data.indexS)
+    var tmp = wx.getStorageSync('indexS') || []
+    tmp.unshift(that.data.indexS)
+    wx.setStorageSync('indexS', tmp)
+
     wx.navigateTo({
       url: '/pages/exam/exam?indexS=' + that.data.indexS,
-      // url: '/pages/exam/exam?',
     })
+    console.log(that.data.indexS)
   },
 })
