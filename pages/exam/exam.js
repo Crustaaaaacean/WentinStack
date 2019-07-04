@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js');
 Page({
   data: {
+    logi:[],
     id: [],
     timer: '',
     countDownNum: '60',
@@ -378,15 +379,22 @@ Page({
     })
   },
   upload: function () {
-    var that = this;
+    
     // var time = util.formatTime(newDate())
     // console.log(time)
 
     this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
+      logi: (wx.getStorageSync('logi') || []).map(log => {
         return util.formatTime(new Date(log))
       })
     })
+    var logi = wx.getStorageSync('logi') || []
+    logi.unshift(Date.now())
+    wx.setStorageSync('logi', logi)
+    
+    wx.setStorageSync('testTime', this.data.logi)
+    var that=this;
+    console.log('logi',this.data.logi)
 
     for (let j = 0; j < 6; j++){
       var tmp = 'judge[' + j + ']';

@@ -10,7 +10,6 @@
         <view wx:if="{{i == index}}">
           <label wx:for="{{item}}" class="options-content">
             <radio class="radio-indiv" checked="{{item.checked}}" value="{{index}}">{{item}}</radio>
-            <!-- <text>{{item}}</text> -->
           </label> 
         </view>
       </label>

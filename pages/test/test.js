@@ -2,7 +2,7 @@
 Page({
   data: {
     arrayS: ['计算机类', '马原', '经管', '毛概'],
-    indexS: 0,
+    indexS: [],
     primarySize: 'default',
     disabled: false,
     plain: false,
@@ -14,13 +14,10 @@ Page({
     this.setData({
       indexS: e.detail.value
     })
-    wx.setStorage({   //缓存传参
-      key: "indexS",
-      data: that.data.indexS
-    })
   },
   exam: function(){
     var that = this;
+    wx.setStorageSync('indexS', that.data.indexS)
     wx.navigateTo({
       url: '/pages/exam/exam?indexS=' + that.data.indexS,
       // url: '/pages/exam/exam?',

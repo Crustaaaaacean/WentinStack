@@ -19,9 +19,15 @@ Page({
       error: options.error - 0,
       ration: options.ration - 0,
     })
+
+    wx.setStorage({
+      key: 'ration',
+      data: this.data.ration,
+    })
     
 
   },
+
   reset: function(){
     wx.navigateBack({
       delta: 2
