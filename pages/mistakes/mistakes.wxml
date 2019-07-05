@@ -2,7 +2,7 @@
 <view class='background'>
     <image src='/images/background6.png' class='backimg'></image>
 </view>
-<view class="container" wx:for="{{items}}">
+<view class="model" wx:for="{{items}}">
   <view>{{item.title}}</view>
   <view wx:if='{{item.type==0}}'>
     <view>{{item.A}}</view>
